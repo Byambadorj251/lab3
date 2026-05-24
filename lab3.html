@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thefacebook Profile</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #d9d9d9;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #000;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .container {
+      width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #9a9a9a;
+    }
+
+    /* HEADER */
+    .topbar {
+      height: 115px;
+      background: #3e5ea8;
+      border-top: 3px solid #111;
+      border-bottom: 1px solid #8fa3d4;
+    }
+
+    .topbar td {
+      padding: 0;
+      vertical-align: top;
+    }
+
+    .header-wrap {
+      width: 100%;
+      height: 115px;
+      table-layout: fixed;
+    }
+
+
+    
+    .header-right {
+      width: 48%;
+      background: #3e5ea8;
+      padding: 18px 24px 0 24px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      color: #74a0ee;
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: -2px;
+      line-height: 1;
+      text-transform: lowercase;
+      text-shadow: 0 0 4px rgba(255,255,255,0.15);
+      white-space: nowrap;
+    }
+
+    .menu {
+      margin-top: 12px;
+      white-space: nowrap;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 11px;
+      margin-right: 16px;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* CONTENT */
+    .content {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .sidebar {
+      width: 210px;
+      background: #f0f0f0;
+      border-right: 1px solid #9a9a9a;
+      padding: 10px 8px;
+      vertical-align: top;
+    }
+
+    .main {
+      padding: 10px;
+      vertical-align: top;
+    }
+
+    .profile-title {
+      width: 100%;
+      border: 1px solid #9a9a9a;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+
+    .profile-title td {
+      background: #3e5ea8;
+      color: #fff;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 6px 8px;
+    }
+
+    .left-col {
+      width: 340px;
+      vertical-align: top;
+      padding-right: 10px;
+    }
+
+    .right-col {
+      vertical-align: top;
+    }
+
+    .box {
+      border: 1px solid #9a9a9a;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    .box-header {
+      background: #3e5ea8;
+      color: #fff;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 5px 8px;
+    }
+
+    .box-header .edit {
+      float: right;
+      color: #fff;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .box-body {
+      padding: 8px;
+      background: #fff;
+    }
+
+    .search-wrap {
+      border: 1px dashed #b9b9b9;
+      padding: 10px 8px 14px 8px;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    .search-input {
+      width: 108px;
+      padding: 3px;
+      font-size: 12px;
+      border: 1px solid #999;
+    }
+
+    .search-btn {
+      padding: 2px 10px;
+      font-size: 12px;
+      background: #3e5ea8;
+      border: 1px solid #6f86bb;
+      color: white;
+      cursor: pointer;
+    }
+
+    .quick-label {
+      margin-top: 6px;
+      color: #444;
+      font-size: 11px;
+    }
+
+    .side-links {
+      border: 1px dashed #b9b9b9;
+      background: #fff;
+      padding: 10px 8px 14px 8px;
+    }
+
+    .side-links a {
+      display: block;
+      color: #5a76b7;
+      text-decoration: none;
+      font-size: 12px;
+      margin: 4px 0;
+    }
+
+    .side-links a:hover {
+      text-decoration: underline;
+    }
+
+    .picture-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border: 1px solid #777;
+      display: block;
+      background: #ddd;
+    }
+
+    .mini-links {
+      width: 100%;
+      margin-top: 8px;
+      border-collapse: collapse;
+    }
+
+    .mini-links td {
+      border: 1px solid #9a9a9a;
+      padding: 6px 10px;
+      background: #fff;
+    }
+
+    .mini-links a {
+      color: #6a7fb5;
+      text-decoration: none;
+    }
+
+    .mini-links a:hover {
+      text-decoration: underline;
+    }
+
+    .connection-text {
+      text-align: center;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .access-text {
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table td {
+      padding: 3px 6px;
+      vertical-align: top;
+      font-size: 12px;
+    }
+
+    .label {
+      width: 145px;
+      color: #222;
+    }
+
+    .value {
+      color: #6882bd;
+    }
+
+    .section-title {
+      font-weight: bold;
+      color: #111;
+      padding-top: 4px;
+    }
+
+    .small-edit {
+      color: #6a7fb5;
+      text-decoration: none;
+    }
+
+    .small-edit:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <table class="container" align="center">
+    <tr class="topbar">
+      <td colspan="2">
+        <table class="header-wrap">
+          <tr>
+            <td class="header-left"></td>
+            <td class="header-right">
+              <div class="logo">[ thefacebook ]</div>
+              <div class="menu">
+                <a href="#">home</a>
+                <a href="#">search</a>
+                <a href="#">global</a>
+                <a href="#">social net</a>
+                <a href="#">invite</a>
+                <a href="#">faq</a>
+                <a href="#">logout</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <table class="content">
+          <tr>
+            <td class="sidebar">
+              <div class="search-wrap">
+                <div style="margin-bottom:8px;">
+                  <input class="search-input" type="text" />
+                  <button class="search-btn">go</button>
+                </div>
+                <div class="quick-label">quick search</div>
+              </div>
+
+              <div class="side-links">
+                <a href="#">My Profile [ edit ]</a>
+                <a href="#">My Groups</a>
+                <a href="#">My Friends</a>
+                <a href="#">My Messages</a>
+                <a href="#">My Away Message</a>
+                <a href="#">My Mobile Info</a>
+                <a href="#">My Account</a>
+                <a href="#">My Privacy</a>
+              </div>
+            </td>
+
+            <td class="main">
+              <table class="profile-title">
+                <tr>
+                  <td>Scott Pearson's Profile&nbsp;&nbsp;(This is you)</td>
+                  <td style="text-align:right; width:120px;">Scranton</td>
+                </tr>
+              </table>
+
+              <table style="width:100%;">
+                <tr>
+                  <td class="left-col">
+                    <div class="box">
+                      <div class="box-header">
+                        Picture
+                        <a href="#" class="edit">[ edit ]</a>
+                      </div>
+                      <div class="box-body">
+                        <img
+                          class="picture-img"
+                          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+                          alt="Profile picture"
+                        />
+                      </div>
+                    </div>
+
+                    <table class="mini-links">
+                      <tr><td><a href="#">Visualize My Friends</a></td></tr>
+                      <tr><td><a href="#">Edit My Profile</a></td></tr>
+                      <tr><td><a href="#">My Account Preferences</a></td></tr>
+                      <tr><td><a href="#">My Privacy Preferences</a></td></tr>
+                    </table>
+
+                    <div class="box" style="margin-top:12px;">
+                      <div class="box-header">Connection</div>
+                      <div class="box-body connection-text">This is you.</div>
+                    </div>
+
+                    <div class="box">
+                      <div class="box-header">Access</div>
+                      <div class="box-body access-text">
+                        Scott is currently logged in from a non-residential location.
+                      </div>
+                    </div>
+                  </td>
+
+                  <td class="right-col">
+                    <div class="box">
+                      <div class="box-header">
+                        Information
+                        <a href="#" class="edit">[ edit ]</a>
+                      </div>
+                      <div class="box-body">
+                        <table class="info-table">
+                          <tr>
+                            <td class="section-title" colspan="2">Account Info:</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Name:</td>
+                            <td class="value">Scott Pearson, bs</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Member Since:</td>
+                            <td class="value">January 12, 2005</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Last Update:</td>
+                            <td class="value">February 3, 2005</td>
+                          </tr>
+
+                          <tr>
+                            <td class="section-title">Basic Info:</td>
+                            <td><a href="#" class="small-edit">[ edit ]</a></td>
+                          </tr>
+                          <tr>
+                            <td class="label">Email:</td>
+                            <td class="value">pearsons2@scranton.edu</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Status:</td>
+                            <td class="value">Alumnus/Alumna</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Sex:</td>
+                            <td class="value">Male</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Year:</td>
+                            <td class="value">2004</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Concentration:</td>
+                            <td class="value">
+                              Computing Sciences<br />
+                              Mathematics
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="label">Phone:</td>
+                            <td class="value">570.499.4818</td>
+                          </tr>
+                          <tr>
+                            <td class="label">High School:</td>
+                            <td class="value">Dunmore HS '00</td>
+                          </tr>
+
+                          <tr>
+                            <td class="section-title">Extended Info:</td>
+                            <td><a href="#" class="small-edit">[ edit ]</a></td>
+                          </tr>
+                          <tr>
+                            <td class="label">Screenname:</td>
+                            <td class="value">ScottieP7</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Looking For:</td>
+                            <td class="value">
+                              Friendship<br />
+                              Dating<br />
+                              A Relationship<br />
+                              Random play<br />
+                              Whatever I can get
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="label">Interested In:</td>
+                            <td class="value">Women</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Relationship Status:</td>
+                            <td class="value">Single</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Political Views:</td>
+                            <td class="value">Liberal</td>
+                          </tr>
+                          <tr>
+                            <td class="label">Interests:</td>
+                            <td class="value">
+                              Drinking, Football, Basketball, Tennis, skiing, you'll have that
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
